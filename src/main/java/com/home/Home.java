@@ -11,6 +11,7 @@ public class Home extends JFrame {
     //This class is the main landing page.
     private static JFrame f;
     private static JButton b;
+    private static JButton s;
     private static JLabel l;
     private static JTextField tf;
     float sum = 0;
@@ -68,6 +69,33 @@ public class Home extends JFrame {
         buttonC.gridx = 0;
         buttonC.gridy = 0;
         buttonPanel.add(b, buttonC);
+
+        s = new JButton("- number");
+        s.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                float sumIn = sum;
+                String tftxt = tf.getText();
+                SystemPrint s = new SystemPrint();
+                if (s.SystemPrint(tftxt)){
+                    sumIn -= Float.parseFloat(tftxt);
+                    sum = sumIn;
+                    System.out.println(sumIn);
+                    l.setText("Input total in: \n\n" + Float.toString(sum) + "\n");
+                    f.revalidate();
+                    f.repaint();
+                }
+                else {
+                    l.setText("NOT A NUMBER. PLEASE TRY AGAIN.");
+                    f.revalidate();
+                    f.repaint();
+                }
+            }
+        });
+        buttonC.insets = new Insets(10, 0, 0, 0);
+        buttonC.gridx = 1;
+        buttonC.gridy = 0;
+        buttonPanel.add(s, buttonC);
 
 
         //END
