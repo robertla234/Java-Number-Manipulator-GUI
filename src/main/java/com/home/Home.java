@@ -1,13 +1,11 @@
 package com.home;
 
-import com.home.SystemPrint;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Home extends JFrame {
+public class Home extends JFrame{
     //This class is the main landing page.
     private static JFrame f;
     private static JButton b;
@@ -15,6 +13,8 @@ public class Home extends JFrame {
     private static JLabel l;
     private static JTextField tf;
     float sum = 0;
+
+
 
     public static void main(String[] args) {
         Home home = new Home();
@@ -25,10 +25,6 @@ public class Home extends JFrame {
         f = new JFrame("Java Budget Tracker");
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
         //BEGIN
-
-        //SystemPrint s = new SystemPrint();
-        //int wow = s.SystemPrint(3);
-        //System.out.println(wow);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel titlePanel = new JPanel(new GridBagLayout());
@@ -49,8 +45,8 @@ public class Home extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 float sumIn = sum;
                 String tftxt = tf.getText();
-                SystemPrint s = new SystemPrint();
-                if (s.SystemPrint(tftxt)){
+                functions ft = new functions();
+                if (ft.isNum(tftxt)){
                     sumIn += Float.parseFloat(tftxt);
                     sum = sumIn;
                     System.out.println(sumIn);
@@ -76,8 +72,8 @@ public class Home extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 float sumIn = sum;
                 String tftxt = tf.getText();
-                SystemPrint s = new SystemPrint();
-                if (s.SystemPrint(tftxt)){
+                functions ft = new functions();
+                if (ft.isNum(tftxt)){
                     sumIn -= Float.parseFloat(tftxt);
                     sum = sumIn;
                     System.out.println(sumIn);

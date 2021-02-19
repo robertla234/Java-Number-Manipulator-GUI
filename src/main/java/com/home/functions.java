@@ -1,7 +1,7 @@
 package com.home;
 
-public class SystemPrint {
-    public static boolean SystemPrint(String strNum) {
+public class functions {
+    public boolean isNum(String strNum){
         boolean ret = true;
         try {
             Float.parseFloat(strNum);
